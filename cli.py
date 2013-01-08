@@ -11,6 +11,8 @@ import json
 
 from configobj import ConfigObj
 
+import modules.reporting.hpfeeds_logger as hpfeeds
+
 
 class CLI(cmd.Cmd):
 
@@ -171,6 +173,8 @@ def main():
 
     url = "http://" + server + ":" + port + "/"
     conn = xmlrpclib.ServerProxy(url)
+    hpfeeds_logger = hpfeeds.HPFeedsLogger()
+    hpfeeds_logger.insert("Successfully loaded and connected to HPFeedsLogger")
 
     try:
         ret = conn.echo("echo")
