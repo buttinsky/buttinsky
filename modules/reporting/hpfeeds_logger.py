@@ -7,7 +7,6 @@ from base_logger import BaseLogger
 
 class HPFeedsLogger(BaseLogger):
 
-    #def __init__(self, create_tables):
     def __init__(self):
         self.buttinsky_config = ConfigObj("conf/buttinsky.cfg")
         if self.buttinsky_config["hpfeeds"]["enabled"] == "False":
